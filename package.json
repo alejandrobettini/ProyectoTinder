@@ -1,0 +1,19 @@
+{
+  "name": "proyectotinder",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "cucumber-js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alejandrobettini/ProyectoTinder.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/alejandrobettini/ProyectoTinder/issues"
+  },
+  "homepage": "https://github.com/alejandrobettini/ProyectoTinder#readme"
+}
