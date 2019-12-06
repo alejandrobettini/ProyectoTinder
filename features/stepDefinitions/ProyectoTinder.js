@@ -13,11 +13,16 @@ await this.driver.get ('http://www.tinder.com');
 
 When(/^iniciar sesion en Tinder con usuario "(.*)" y contraseña "(.*)"$/, async function (usuario, contraseña) {
     await this.driver.wait(until.elementLocated(By.xpath(WElements.WEiniciarSesionFb)));
+    
+
     var WEiniciarSesionFb = await this.driver.findElement(By.xpath(WElements.WEiniciarSesionFb)); 
+    
     await WEiniciarSesionFb.click();
 
-    
-    /*
+    let handles = await this.driver.getAllWindowHandles();
+    await this.driver.switchTo().window(handles[1]);
+
+
     await this.driver.wait(until.elementLocated(By.xpath(WElements.WEemail)));
     var WEemail = await this.driver.findElement(By.xpath(WElements.WEemail));
     await WEemail.sendKeys(usuario);
@@ -25,7 +30,8 @@ When(/^iniciar sesion en Tinder con usuario "(.*)" y contraseña "(.*)"$/, async
     var WEcontraseña = await this.driver.findElement(By.xpath(WElements.WEcontraseña));
     await WEcontraseña.sendKeys(contraseña);
     await this.driver.findElement(By.xpath(WElements.WEentrar)).click();
-    */
+    await this.driver.switchTo().window(handles[0]);
+    
 });
 
 Then('mandar corazones', async function () {
