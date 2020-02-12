@@ -5,6 +5,9 @@ require('chromedriver');
 var driver;
 setDefaultTimeout(1000000);
 const { WElements} = require(`${process.cwd()}/pages/ProyectoTinder.js`);
+const { assert, expect} = require('chai');
+var nameLike;
+
 
 Given ('open Tinder', async function () {
 this.driver = await new webdriver.Builder().forBrowser('chrome').build();
@@ -51,5 +54,18 @@ Then('mandar corazones', async function () {
 
     }
 
+
+});
+
+When ('envio un like', async function () {
+    this.nameLike = await this.driver.findElement(By.xpath(WElements.girlName)).getText();
+    await this.driver.wait(until.elementLocated(By.xpath(WElements.WEcorazon)));
+    let WEcorazon = await this.driver.findElement(By.xpath(WElements.WEcorazon));
+    await WEcorazon.click();
+
+});
+Then('verificar like', async function () {
+    var name2Like = await this.driver.findElement(By.xpath(WElements.girlName)).getText();
+    assert(this.nameLike!==name2Like);
 
 });
