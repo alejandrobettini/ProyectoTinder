@@ -92,4 +92,6 @@ Then('verificar rechazo', async function () {
 Then('verificar doble superlike', async function () {
     var name2Like = await this.driver.findElement(By.xpath(WElements.girlName)).getText();
     assert(this.nameLike!==name2Like);
+    this.name3Like = await this.driver.findElement(By.xpath()).getText();
+    assertt(this.name3Like=name2Like); //igual a se escribe asi?)
 });
