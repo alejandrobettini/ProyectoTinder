@@ -47,14 +47,9 @@ Then('mandar corazones', async function () {
         await WEcorazon.click();
 
        } catch (error) {
-           
+        
        }
-
-
-
     }
-
-
 });
 
 When ('envio un like', async function () {
@@ -68,4 +63,33 @@ Then('verificar like', async function () {
     var name2Like = await this.driver.findElement(By.xpath(WElements.girlName)).getText();
     assert(this.nameLike!==name2Like);
 
+});
+
+When ('envio un superlike', async function () {
+    this.nameLike = await this.driver.findElement(By.xpath(WElements.girlName)).getText();
+    await this.driver.wait(until.elementLocated(By.xpath(WElements.WEsuperlike)));
+    let WEsuperlike = await this.driver.findElement(By.xpath(WElements.WEsuperlike));
+    await WEsuperlike.click();
+});
+Then('verificar superlike', async function () {
+    var name2Like = await this.driver.findElement(By.xpath(WElements.girlName)).getText();
+    assert(this.nameLike!==name2Like);
+});
+
+When ('envio rechazo', async function () {
+    this.nameLike = await this.driver.findElement(By.xpath(WElements.girlName)).getText();
+    await this.driver.wait(until.elementLocated(By.xpath(WElements.WErechazo)));
+    let WErechazo = await this.driver.findElement(By.xpath(WElements.WErechazo));
+    await WErechazo.click();
+
+});
+Then('verificar rechazo', async function () {
+    var name2Like = await this.driver.findElement(By.xpath(WElements.girlName)).getText();
+    assert(this.nameLike!==name2Like);
+
+});
+
+Then('verificar doble superlike', async function () {
+    var name2Like = await this.driver.findElement(By.xpath(WElements.girlName)).getText();
+    assert(this.nameLike!==name2Like);
 });

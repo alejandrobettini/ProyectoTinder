@@ -5,6 +5,8 @@ let WElements = {
     WEiniciarSesionFb: '//span[.="Inicia sesión con Facebook"]',
     WEentrar: '//input[@value="Entrar"]',
     WEcorazon: '//button[@aria-label="Me gusta"]',
+    WEsuperlike: '//button[@aria-label="Super Like"]',
+    WErechazo: '//button[@aria-label="Nope"]',
     girlName: buscar xpath
     
 };
